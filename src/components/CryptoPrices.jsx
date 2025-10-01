@@ -11,9 +11,8 @@ import {
 
 export function CryptoPrices(props) {
   let { cryptoData } = props;
-  console.log("inside cpr");
-  console.log(props.cryptoData[0])
   return (
+    
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
