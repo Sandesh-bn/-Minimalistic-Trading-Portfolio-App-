@@ -2,6 +2,8 @@
 
 Built this little project to flex my frontend muscles and play around with crypto data.
 
+⚠️⛔ Coingecko is stingy with their API limits. So the app might fail to fetch data after 10 requests in a minute. A localstorage based solution to retain previous state is on the roadmap. ⛔⚠️ 
+
 ### ✨ What it does
 
 Pulls live(ish) crypto info from the Coingecko API
