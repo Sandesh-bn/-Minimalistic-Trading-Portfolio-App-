@@ -9,6 +9,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { formatCurrency, formatLargeNumber } from "../utils/formatCurrency";
 
 export function CryptoTable(props) {
     let { cryptoData, setCryptoInfo } = props;
@@ -54,12 +55,12 @@ export function CryptoTable(props) {
                             <img className="w-5 h-5 inline m-2" src={data.image} />
                             {data.name} {data.symbol}
                         </TableCell>
-                        <TableCell className="font-medium">{data.current_price}</TableCell>
+                        <TableCell className="font-medium">{formatCurrency(data.current_price)}</TableCell>
                         <TableCell className={data.price_change_percentage_24h > 0 ? "text-green-700 font-medium" : "text-red-600  font-medium"}>{data.price_change_percentage_24h}</TableCell>
-                        <TableCell>{data.high_24h}</TableCell>
-                        <TableCell className="">{data.low_24h}</TableCell>
+                        <TableCell>{formatCurrency(data.high_24h)}</TableCell>
+                        <TableCell className="">{formatCurrency(data.low_24h)}</TableCell>
                         <TableCell>{data.price_change_percentage_24h}</TableCell>
-                        <TableCell>{data.market_cap}</TableCell>
+                        <TableCell>{formatLargeNumber(data.market_cap)}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

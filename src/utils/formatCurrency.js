@@ -8,5 +8,7 @@ export function formatCurrency(amount, currency = "USD") {
 }
 
 export function formatLargeNumber(number) {
+  if (!number)
+    return;
   return number.toLocaleString("en-US");
 }

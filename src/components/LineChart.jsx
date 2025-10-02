@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { Spinner } from '@/components/ui/shadcn-io/spinner';
+
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -67,7 +69,11 @@ export function LineChart({ coinId = "bitcoin", days = 7 }) {
       });
   }, [coinId, days]);
 
-  if (loading) return <p>Loading chart...</p>;
+  if (loading) return (
+    <div className="flex justify-center items-center h-full">
+        <Spinner key={'bars'} variant={'bars'} />
+    </div>
+  )
   if (error) return <p>Error: {error}</p>;
 
   return (
