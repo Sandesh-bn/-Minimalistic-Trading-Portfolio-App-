@@ -26,6 +26,18 @@ Chart.js for tasty charts 📊
 
 Coingecko API for crypto data 💰
 
+
+![Preview 1](https://raw.githubusercontent.com/Sandesh-bn/-Minimalistic-Trading-Portfolio-App-/refs/heads/master/src/assets/images/preview-1.jpg)
+
+
+
+![Preview 2](https://raw.githubusercontent.com/Sandesh-bn/-Minimalistic-Trading-Portfolio-App-/refs/heads/master/src/assets/images/preview-2.jpg)
+
+
+
+![Preview 3](https://raw.githubusercontent.com/Sandesh-bn/-Minimalistic-Trading-Portfolio-App-/refs/heads/master/src/assets/images/preview-3.jpg)
+
+
 ### 🍾 Future Enhancements
 
 Real-time pricing (Coingecko free tier = stingy limits → need to build my own backend with websocket/sse)
