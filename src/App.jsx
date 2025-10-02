@@ -98,7 +98,7 @@ function App() {
     <Router>
       <div className="flex min-h-screen">
         <aside className="w-50 bg-gradient-to-b from-slate-900 to-zinc-900  text-gray-500 p-4 flex flex-col">
-          <h1 className="text-xl mb-6">Trading Portfolio</h1>
+          <h1 className="text-xl mb-6 text-zinc-400">Trading Portfolio</h1>
           <nav className="flex-1 space-y-3 text-small">
             <NavLink
               to="/"
