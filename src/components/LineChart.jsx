@@ -111,7 +111,42 @@ export function LineChart({ coinId = "bitcoin", days = 7 }) {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
-            <Line options={{ animation: false }} data={chartData} />
+            <Line
+                data={chartData}
+                options={{
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: "#e5e7eb", // Tailwind gray-200
+                            },
+                        },
+                        tooltip: {
+                            titleColor: "#f9fafb", // gray-50
+                            bodyColor: "#f9fafb",
+                        },
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: "#9fa0a2ff", // gray-300
+                            },
+                            grid: {
+                                color: "rgba(255,255,255,0.1)", // faint white grid
+                            },
+                        },
+                        y: {
+                            ticks: {
+                                color: "#bdbdbeff",
+                            },
+                            grid: {
+                                color: "rgba(255,255,255,0.1)",
+                            },
+                        },
+                    },
+                }}
+            />
+
         </div>
     );
 }

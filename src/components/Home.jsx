@@ -22,7 +22,7 @@ export function Home(props) {
 
         {Object.entries(assets).map(([key, value]) => (
           <div className="w-1/2 sm:w-1/4  ">
-            <div onClick={() => setSelectedCrypto(key)} className='hover:shadow-2xl text-[#e6e6ea] transform hover:-translate-y-1 transition-all duration-300 ease-linear shadow-md flex flex-col p-5 bg-gradient-to-b from-slate-800 to-zinc-900 border border-zinc-800 rounded m-5 h-50 justify-between '>
+            <div onClick={() => setSelectedCrypto(key)} className='hover:shadow-2xl text-[#e6e6ea] transform hover:-translate-y-1 transition-all duration-300 ease-linear shadow-md flex flex-col p-5 bg-gradient-to-b from-slate-800 to-zinc-900 border border-zinc-800 rounded m-5 h-50 justify-between cursor-pointer '>
               <div className='flex flex-row'>
                 <div>
                   <img className='w-15 h-15 mr-5' src={assets[key].image} />

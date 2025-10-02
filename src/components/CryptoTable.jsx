@@ -49,7 +49,7 @@ export function CryptoTable(props) {
             </TableHeader>
             <TableBody>
                 {cryptoData && Array.isArray(cryptoData) && cryptoData.map((data, index) => (
-                    <TableRow className="hover:bg-zinc-800 text-[#e6e6ea] border-b border-zinc-700" onClick={() => handleRowClick(data.id, index)} key={data.id}>
+                    <TableRow className="cursor-pointer hover:bg-zinc-800 text-[#e6e6ea] border-b border-zinc-700" onClick={() => handleRowClick(data.id, index)} key={data.id}>
                         <TableCell className="font-medium">
                             <img className="w-5 h-5 inline m-2" src={data.image} />
                             {data.name} ({data.symbol})
