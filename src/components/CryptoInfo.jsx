@@ -16,7 +16,8 @@ export function CryptoInfo(props) {
 
     const allTimeHighDate = new Date(ath_date).toLocaleString();
     return (
-        <div className="flex flex-col p-5 mx-5 border border-gray-300 rounded-[5px]">
+        <div className="flex flex-col p-5 mr-10 border border-gray-300 rounded-[5px]">
+            
             <div className="flex flex-1">
                 <img className="w-10 h-10 mx-5" src={image} />
                 <p className="text-2xl font-bold text-gray-500">{name}</p>
@@ -27,7 +28,7 @@ export function CryptoInfo(props) {
                     className={`${price_change_percentage_24h > 0 ? 'bg-green-500' : 'bg-red-500'
                         } h-8 mx-4 my-7 text-white text-center p-[5px] rounded-md`}
                 >
-                    {price_change_percentage_24h} (24h)</span>
+                    {price_change_percentage_24h.toFixed(2)}% (24h)</span>
             </div>
             <div>
                 <p className="text-small py-3 text-zinc-600">Market Cap: {formatCurrency(market_cap)}</p>
