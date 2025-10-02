@@ -36,7 +36,6 @@ export function CryptoTable(props) {
 
     return (
         <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
                 <TableRow>
                     <TableHead className="w-[100px]">Name</TableHead>
@@ -50,7 +49,7 @@ export function CryptoTable(props) {
             </TableHeader>
             <TableBody>
                 {cryptoData && Array.isArray(cryptoData) && cryptoData.map((data, index) => (
-                    <TableRow onClick={() => handleRowClick(data.id, index)} key={data.id}>
+                    <TableRow className="hover:bg-zinc-100" onClick={() => handleRowClick(data.id, index)} key={data.id}>
                         <TableCell className="font-medium">
                             <img className="w-5 h-5 inline m-2" src={data.image} />
                             {data.name} ({data.symbol})

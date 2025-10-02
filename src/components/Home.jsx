@@ -10,21 +10,22 @@ export function Home(props) {
   console.log("Asss");
   console.log(assets)
   const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
-  const labels = ["Bitcoin", "Ethereum", "Solana", "Other"];
-  const values = [21000, 14000, 4000, 2000];
-  const colors = ["#f59e0b", "#10b981", "#3b82f6", "#ef4444"];
+  const labels = ["Bitcoin", "Ethereum", "Dogecoin", "Solana"];
+  const values = [assets['bitcoin'].assetValue, assets['ethereum'].assetValue, assets['dogecoin'].assetValue, assets['solana'].assetValue];
+  
   return (
 
-    <div className="flex flex-col h-screen bg-zinc-100">
-
+    <div className="flex flex-col h-screen bg-white">
+      <h1 className='pt-3 pl-5 font-bold text-xl'>My Porfolio</h1>
+      
       <div className="flex flex-2 flex-wrap">
 
         {Object.entries(assets).map(([key, value]) => (
-          <div className="w-1/2 sm:w-1/4 ">
+          <div className="w-1/2 sm:w-1/4  ">
 
 
 
-            <div onClick={() => setSelectedCrypto(key)} className='flex flex-col p-5 bg-white border border-gray-300 rounded m-5 h-50 justify-between '>
+            <div onClick={() => setSelectedCrypto(key)} className='bg-gray-50 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-linear shadow-md flex flex-col p-5 bg-white border border-gray-100 rounded m-5 h-50 justify-between '>
               <div className='flex flex-row'>
                 <div>
                   <img className='w-15 h-15 mr-5' src={assets[key].image} />
@@ -51,16 +52,21 @@ export function Home(props) {
       </div>
       {/* Row 1 - 50% height */}
       <div className="flex flex-3 flex-wrap">
-        <div className="w-full sm:w-1/2">
+        <div className="px-5 w-full sm:w-1/2">
           <LineChart coinId={selectedCrypto} />
         </div>
         <div className="w-full sm:w-1/2 pr-20 pl-5">
           <div className='flex justify-between mb-10'>
             <p className='text-4xl font-bold'>{formatCurrency(overallAssetsData.total)}</p>
-            <p>{formatCurrency(overallAssetsData.totalChangeDaily)} ({overallAssetsData.percentageChangeDaily})</p>
+            <div><p>Today: </p>
+            {
+              overallAssetsData.percentageChangeDaily > 0? 
+                  <p className='text-green-500'>{formatCurrency(overallAssetsData.totalChangeDaily)} ({overallAssetsData.percentageChangeDaily})</p>:
+                  <p className='text-green-500'>{formatCurrency(overallAssetsData.totalChangeDaily)} ({overallAssetsData.percentageChangeDaily})</p>}
+            </div>
           </div>
           <div>
-            <DonutChart labels={labels} values={values} colors={colors}/>
+            <DonutChart labels={labels} values={values} />
           </div>
         </div>
       </div>

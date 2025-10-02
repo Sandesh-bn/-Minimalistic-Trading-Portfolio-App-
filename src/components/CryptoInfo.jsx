@@ -31,9 +31,9 @@ export function CryptoInfo(props) {
                     {price_change_percentage_24h.toFixed(2)}% (24h)</span>
             </div>
             <div>
-                <p className="text-small py-3 text-zinc-600">Market Cap: {formatCurrency(market_cap)}</p>
-                <p className="text-small py-3 text-zinc-600">All Time High: {formatCurrency(ath)} on {allTimeHighDate}</p>
-                <p className="text-small py-3 text-zinc-600">Max Supply: {formatLargeNumber(max_supply)}</p>
+                <div className="flex justify-between"><p className="text-sm py-1 text-zinc-600">Market Cap:</p> <p  className="text-sm py-1 ">{formatCurrency(market_cap)}</p></div>
+                <div className="flex justify-between"><p className="text-sm py-1 text-zinc-600">All Time High:</p> <p className="text-sm py-1 "> {formatCurrency(ath)}</p></div>
+                <div className="flex justify-between"><p className="text-sm py-1 text-zinc-600">Max Supply:</p> <p  className="text-sm py-1 ">{formatLargeNumber(max_supply)}</p></div> 
             </div>
             {/* {JSON.stringify(selectedCoinInfo)} */}
         </div>

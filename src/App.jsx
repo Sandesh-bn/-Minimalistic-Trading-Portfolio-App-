@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { CryptoPrices } from "./components/CryptoPrices";
-import { Profile } from "./components/Profile";
 import { Watchlist } from "./components/Watchlist";
 import { Home } from "./components/Home";
 import { Settings } from "./components/Settings";
@@ -12,7 +11,7 @@ function App() {
   const k = 'CG-x1Hqm5eLU9zZ5yujBppv5aPF';
   const [cryptoData, setCryptoData] = useState([]);
   const [assets, setAssets] = useState(defaultAssets);
-  
+
   const [overallAssetsData, setOverallAssetsdata] = useState({
     total: '',
     percentageChangeDaily: '',
@@ -121,15 +120,6 @@ function App() {
               <Bitcoin className="mt-1 mr-2" size={16} /> Crypto Prices
             </NavLink>
 
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                `flex px-3 py-2 rounded hover:bg-gray-200 ${isActive ? "font-medium text-blue-700" : ""
-                }`
-              }
-            >
-              <CircleUserRound className="mt-1 mr-2" size={16} /> Profile
-            </NavLink>
 
             <NavLink
               to="/watchlist"
@@ -158,7 +148,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home overallAssetsData={overallAssetsData} assets={assets} />} />
             <Route path="/prices" element={<CryptoPrices cryptoData={cryptoData} />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/watchlist" element={<Watchlist cryptoData={cryptoData} />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>

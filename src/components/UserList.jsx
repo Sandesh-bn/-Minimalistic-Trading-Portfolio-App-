@@ -1,7 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { useState, useEffect } from 'react';
 import { formatCurrency } from "../utils/formatCurrency";
-import { Badge } from "@/components/ui/badge";
 import { X } from 'lucide-react';
 
 
@@ -95,36 +94,13 @@ export function UserList(props) {
         setCryptoInfo({ name: result.name, index: result.index })
     }
 
-    /*
-        input box
-        when user types
-        shows searcsh resutls
-            each result has plus to indicate user can add
-            when user clicks add
-            its information is added to list
-                crypto name ticker 
-                price
-                up or low %
-            when they click on it it should render graph and should render
-            details
-
-            it has table list of crypto
-                onclick sets crypt in parent
-            which causes them to rerender 
-
-            three states
-                default list 
-                searchresult which should contain only non chosen crypto
-                chosenlist 
-     */
-
     return (
         <div className="flex flex-col p-5">
             <h1 className="text-3xl font-bold mb-5">WatchList</h1>
             <Input className="relative" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker/crypto and click to add to watchlist" />
-            {searchTerm.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-white  border border-gray-300 rounded-[5px]">
+            {searchTerm.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-zinc-100  border border-gray-300 rounded-[5px]">
                 {searchResults.map((result, index) => (
-                    <div onClick={() => handleAddTicker(result)} className="p-3 bg-white"><span className="font-bold mr-5">{result.name}</span> {result.symbol}</div>
+                    <div onClick={() => handleAddTicker(result)} className="p-3 bg-zinc-100 border border-gray-300"><span className="font-bold mr-5">{result.name}</span> {result.symbol}</div>
                 ))}
             </div>}
             {chosenList && chosenList.length > 0?
@@ -132,14 +108,14 @@ export function UserList(props) {
                     {chosenList.map((result) => (
                         <div key={result.id} onClick={() => handleClickWatchList(result)} className="flex justify-between py-3 px-4  border-b border-gray-400">
                             <div>
-                                <span className="mr-2 font-bold">{result.name}</span>
-                                <span className="text-small">{result.symbol}</span>
+                                <span className="mr-2 font-bold text-gray-800 text-base">{result.name}</span>
+                                <span className="text-sm">{result.symbol}</span>
                             </div>
                             <div>
-                                <span className="mr-2">{formatCurrency(result.current_price)}</span>
+                                <span className="mr-2 text-sm">{formatCurrency(result.current_price)}</span>
 
                                 <span
-                                    className={result.price_change_percentage_24h > 0 ? 'text-green-500' : 'text-red-500'}
+                                    className={result.price_change_percentage_24h > 0 ? 'text-green-500 text-sm' : 'text-red-500 text-sm'}
                                 >
                                     {result.price_change_percentage_24h}
                                 </span>

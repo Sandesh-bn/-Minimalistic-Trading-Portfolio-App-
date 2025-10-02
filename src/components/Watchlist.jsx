@@ -8,7 +8,7 @@ export function Watchlist(props) {
   const [cryptoInfo, setCryptoInfo] = useState({ name: 'bitcoin', index: 0})
 
   return (
-    <div className="flex h-screen p-3">
+    <div className="flex h-screen p-3 box-border">
       <div className="flex flex-1 flex-col">
         <div className="flex-1">
            <LineChart coinId={cryptoInfo.name} />
