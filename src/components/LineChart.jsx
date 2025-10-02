@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { toNounCase } from "../utils/formatCurrency";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -54,7 +55,7 @@ export function LineChart({ coinId = "bitcoin", days = 7 }) {
            datasets: [
             {
                 fill: true,
-                label: `${coinId} Price (USD)`,
+                label: `${toNounCase(coinId)} Price (USD)`,
                 data: prices,
                 borderColor: 'rgba(9, 192, 88, 1)',
                 backgroundColor: 'rgba(53, 235, 59, 0.5)',

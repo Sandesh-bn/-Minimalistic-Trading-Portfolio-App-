@@ -1,13 +1,25 @@
 import { LineChart } from "./LineChart";
+import { UserList } from "./UserList";
+import { useState} from 'react';
+import { CryptoInfo } from './CryptoInfo'
 
-export function Watchlist() {
+export function Watchlist(props) {
+  let { cryptoData } = props;
+  const [cryptoInfo, setCryptoInfo] = useState({ name: 'bitcoin', index: 0})
+
   return (
-    <div className="flex h-screen">
-      <div id="col1" className="flex flex-1 flex-col">
-        <div id="row1" className="flex-1 border border-gray-300"></div>
-        <div id="row2" className="flex-1 border border-gray-300"></div>
+    <div className="flex h-screen p-3">
+      <div className="flex flex-1 flex-col">
+        <div className="flex-1">
+           <LineChart coinId={cryptoInfo.name} />
+        </div>
+        <div className="flex-1 flex items-center  justify-center">
+          <CryptoInfo selectedCoinInfo={cryptoData[cryptoInfo.index]}/>
+        </div>
       </div>
-      <div id="col2" className="flex-1 border border-gray-300"></div>
+      <div className="flex-1">
+        <UserList setCryptoInfo={setCryptoInfo} cryptoData={cryptoData}/>
+      </div>
     </div>
   );
 }

@@ -53,7 +53,7 @@ export function CryptoTable(props) {
                     <TableRow onClick={() => handleRowClick(data.id, index)} key={data.id}>
                         <TableCell className="font-medium">
                             <img className="w-5 h-5 inline m-2" src={data.image} />
-                            {data.name} {data.symbol}
+                            {data.name} ({data.symbol})
                         </TableCell>
                         <TableCell className="font-medium">{formatCurrency(data.current_price)}</TableCell>
                         <TableCell className={data.price_change_percentage_24h > 0 ? "text-green-700 font-medium" : "text-red-600  font-medium"}>{data.price_change_percentage_24h}</TableCell>
