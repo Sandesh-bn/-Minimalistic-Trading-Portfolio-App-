@@ -15,17 +15,14 @@ export function Home(props) {
   
   return (
 
-    <div className="flex flex-col h-screen bg-white">
-      <h1 className='pt-3 pl-5 font-bold text-xl'>My Porfolio</h1>
+    <div className="flex flex-col h-screen border border-[#222534]">
+      <h1 className='pt-3 pl-5 font-bold text-xl text-zinc-400'>My Porfolio</h1>
       
       <div className="flex flex-2 flex-wrap">
 
         {Object.entries(assets).map(([key, value]) => (
           <div className="w-1/2 sm:w-1/4  ">
-
-
-
-            <div onClick={() => setSelectedCrypto(key)} className='bg-gray-50 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-linear shadow-md flex flex-col p-5 bg-white border border-gray-100 rounded m-5 h-50 justify-between '>
+            <div onClick={() => setSelectedCrypto(key)} className='hover:shadow-2xl text-[#e6e6ea] transform hover:-translate-y-1 transition-all duration-300 ease-linear shadow-md flex flex-col p-5 bg-gradient-to-b from-slate-800 to-zinc-900 border border-zinc-800 rounded m-5 h-50 justify-between '>
               <div className='flex flex-row'>
                 <div>
                   <img className='w-15 h-15 mr-5' src={assets[key].image} />
@@ -57,8 +54,8 @@ export function Home(props) {
         </div>
         <div className="w-full sm:w-1/2 pr-20 pl-5">
           <div className='flex justify-between mb-10'>
-            <p className='text-4xl font-bold'>{formatCurrency(overallAssetsData.total)}</p>
-            <div><p>Today: </p>
+            <p className='text-4xl text-[#e6e6ea] font-bold'>{formatCurrency(overallAssetsData.total)}</p>
+            <div className='text-[#e6e6ea]'><p>Today: </p>
             {
               overallAssetsData.percentageChangeDaily > 0? 
                   <p className='text-green-500'>{formatCurrency(overallAssetsData.totalChangeDaily)} ({overallAssetsData.percentageChangeDaily})</p>:

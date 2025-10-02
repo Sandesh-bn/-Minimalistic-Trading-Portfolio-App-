@@ -15,13 +15,13 @@ import { Spinner } from '@/components/ui/shadcn-io/spinner';
 
 import { Button } from "@/components/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 
@@ -95,11 +95,13 @@ export function LineChart({ coinId = "bitcoin", days = 7 }) {
             <div>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline">Range: {duration} days</Button>
+                        <Button variant="outline" className="bg-zinc-900 text-white border-zinc-700">
+                            Range: {duration} days
+                        </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>Set Duration</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
+                    <DropdownMenuContent className="w-56 bg-zinc-900 text-white border border-zinc-700">
+                        <DropdownMenuLabel className="text-zinc-300">Set Duration</DropdownMenuLabel>
+                        <DropdownMenuSeparator className="bg-zinc-700" />
                         <DropdownMenuRadioGroup value={duration} onValueChange={setDuration}>
                             <DropdownMenuRadioItem value="1">1 Day</DropdownMenuRadioItem>
                             <DropdownMenuRadioItem value="7">1 Week</DropdownMenuRadioItem>

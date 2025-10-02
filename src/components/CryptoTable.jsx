@@ -37,25 +37,25 @@ export function CryptoTable(props) {
     return (
         <Table>
             <TableHeader>
-                <TableRow>
-                    <TableHead className="w-[100px]">Name</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead>%</TableHead>
-                    <TableHead>24 hour high</TableHead>
-                    <TableHead>24 hour low</TableHead>
-                    <TableHead>24 hour volume</TableHead>
-                    <TableHead>Market cap</TableHead>
+                <TableRow className="border-b border-zinc-700" >
+                    <TableHead className="w-[100px] text-[#e6e6ea]">Name</TableHead>
+                    <TableHead className="text-[#e6e6ea]">Price</TableHead>
+                    <TableHead className="text-[#e6e6ea]">%</TableHead>
+                    <TableHead className="text-[#e6e6ea]">24 hour high</TableHead>
+                    <TableHead className="text-[#e6e6ea]">24 hour low</TableHead>
+                    <TableHead className="text-[#e6e6ea]">24 hour volume</TableHead>
+                    <TableHead className="text-[#e6e6ea]">Market cap</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
                 {cryptoData && Array.isArray(cryptoData) && cryptoData.map((data, index) => (
-                    <TableRow className="hover:bg-zinc-100" onClick={() => handleRowClick(data.id, index)} key={data.id}>
+                    <TableRow className="hover:bg-zinc-800 text-[#e6e6ea] border-b border-zinc-700" onClick={() => handleRowClick(data.id, index)} key={data.id}>
                         <TableCell className="font-medium">
                             <img className="w-5 h-5 inline m-2" src={data.image} />
                             {data.name} ({data.symbol})
                         </TableCell>
                         <TableCell className="font-medium">{formatCurrency(data.current_price)}</TableCell>
-                        <TableCell className={data.price_change_percentage_24h > 0 ? "text-green-700 font-medium" : "text-red-600  font-medium"}>{data.price_change_percentage_24h}</TableCell>
+                        <TableCell className={data.price_change_percentage_24h > 0 ? "text-green-400 font-medium" : "text-red-600  font-medium"}>{data.price_change_percentage_24h}</TableCell>
                         <TableCell>{formatCurrency(data.high_24h)}</TableCell>
                         <TableCell className="">{formatCurrency(data.low_24h)}</TableCell>
                         <TableCell>{data.price_change_percentage_24h}</TableCell>

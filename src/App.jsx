@@ -97,13 +97,13 @@ function App() {
   return (
     <Router>
       <div className="flex min-h-screen">
-        <aside className="w-50 bg-zinc-100 text-gray-500 p-4 flex flex-col">
+        <aside className="w-50 bg-[#161823] text-gray-500 p-4 flex flex-col">
           <h1 className="text-xl mb-6">Trading Portfolio</h1>
           <nav className="flex-1 space-y-3 text-small">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `flex px-3 py-2 rounded hover:bg-gray-200 ${isActive ? "font-medium text-blue-700" : ""
+                `flex px-3 py-2 rounded hover:text-zinc-200 ${isActive ? "font-medium text-[#4eb96d]" : ""
                 }`
               }
             >
@@ -113,7 +113,7 @@ function App() {
             <NavLink
               to="/prices"
               className={({ isActive }) =>
-                `flex px-3 py-2 rounded hover:bg-gray-200 ${isActive ? "font-medium text-blue-700" : ""
+                `flex px-3 py-2 rounded hover:text-zinc-200 ${isActive ? "font-medium text-[#4eb96d]" : ""
                 }`
               }
             >
@@ -124,7 +124,7 @@ function App() {
             <NavLink
               to="/watchlist"
               className={({ isActive }) =>
-                `flex px-3 py-2 rounded hover:bg-gray-200 ${isActive ? "font-medium text-blue-700" : ""
+                `flex px-3 py-2 rounded hover:text-zinc-200 ${isActive ? "font-medium text-[#4eb96d]" : ""
                 }`
               }
             >
@@ -134,7 +134,7 @@ function App() {
             <NavLink
               to="/settings"
               className={({ isActive }) =>
-                `flex px-3 py-2 rounded hover:bg-gray-200 ${isActive ? "font-medium text-blue-700" : ""
+                `flex px-3 py-2 rounded hover:text-zinc-200 ${isActive ? "font-medium text-[#4eb96d]" : ""
                 }`
               }
             >
@@ -144,7 +144,7 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-white h-screen overflow-y-auto box-border">
+        <main className="flex-1 bg-[#161823] h-screen overflow-y-auto box-border">
           <Routes>
             <Route path="/" element={<Home overallAssetsData={overallAssetsData} assets={assets} />} />
             <Route path="/prices" element={<CryptoPrices cryptoData={cryptoData} />} />

@@ -96,23 +96,23 @@ export function UserList(props) {
 
     return (
         <div className="flex flex-col p-5">
-            <h1 className="text-3xl font-bold mb-5">WatchList</h1>
-            <Input className="relative" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker/crypto and click to add to watchlist" />
-            {searchTerm.length > 0 && searchResults.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-zinc-100  border border-gray-300 rounded-[5px]">
+            <h1 className="text-3xl font-bold mb-5 text-zinc-400">WatchList</h1>
+            <Input className="relative bg-white text-black dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-400" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker/crypto and click to add to watchlist" />
+            {searchTerm.length > 0 && searchResults.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-gradient-to-b from-slate-800 to-zinc-900  border border-zinc-800 rounded-[5px]">
                 {searchResults.map((result, index) => (
-                    <div onClick={() => handleAddTicker(result)} className="p-3 bg-zinc-100 border border-gray-300"><span className="font-bold mr-5">{result.name}</span> {result.symbol}</div>
+                    <div onClick={() => handleAddTicker(result)} className="p-3 border border-gray-800 hover:bg-gray-700"><span className="font-bold mr-5 text-zinc-300">{result.name}</span> <span className="text-zinc-300">{result.symbol}</span></div>
                 ))}
             </div>}
             {chosenList && chosenList.length > 0?
-                <div className="my-8 flex flex-col border border-gray-300 rounded-[5px]">
+                <div className="my-8 flex flex-col border border-zinc-800 rounded-[5px] bg-gradient-to-b from-slate-800 to-zinc-900">
                     {chosenList.map((result) => (
                         <div key={result.id} onClick={() => handleClickWatchList(result)} className="flex justify-between py-3 px-4  border-b border-gray-400">
                             <div>
-                                <span className="mr-2 font-bold text-gray-800 text-base">{result.name}</span>
-                                <span className="text-sm">{result.symbol}</span>
+                                <span className="mr-2 font-bold text-[#e6e6ea] text-base">{result.name}</span>
+                                <span className="text-sm text-zinc-200">{result.symbol}</span>
                             </div>
                             <div>
-                                <span className="mr-2 text-sm">{formatCurrency(result.current_price)}</span>
+                                <span className="mr-2 text-sm text-[#e6e6ea]">{formatCurrency(result.current_price)}</span>
 
                                 <span
                                     className={result.price_change_percentage_24h > 0 ? 'text-green-500 text-sm' : 'text-red-500 text-sm'}

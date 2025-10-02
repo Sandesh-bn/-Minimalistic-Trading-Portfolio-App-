@@ -7,8 +7,8 @@ export function CryptoPrices(props) {
     let { cryptoData } = props;
     const [cryptoInfo, setCryptoInfo] = useState({ name: 'bitcoin', index: 0})
     return (
-        <div className="h-screen flex flex-col border border-gray-300">
-           <h1 className='font-bold pt-3 px-10 text-2xl flex'>Top 100 Cryptocurrencies</h1>
+        <div className="h-screen flex flex-col border border-zinc-700">
+           <h1 className='font-bold pt-3 px-10 text-2xl text-[#e6e6ea] flex'>Top 100 Cryptocurrencies</h1>
             <div className="flex flex-1">
                 <div className="flex-1 m-10">
                     <LineChart coinId={cryptoInfo.name} />
