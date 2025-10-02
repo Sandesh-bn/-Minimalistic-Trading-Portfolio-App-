@@ -121,8 +121,8 @@ export function UserList(props) {
     return (
         <div className="flex flex-col p-5">
             <h1 className="text-3xl font-bold mb-5">WatchList</h1>
-            <Input className="relative" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker or crypto.." />
-            {searchTerm.length > 0 && <div className="absolute h-100 my-25 overflow-y-auto bg-white  border border-gray-300 rounded-[5px]">
+            <Input className="relative" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker/crypto and click to add to watchlist" />
+            {searchTerm.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-white  border border-gray-300 rounded-[5px]">
                 {searchResults.map((result, index) => (
                     <div onClick={() => handleAddTicker(result)} className="p-3 bg-white"><span className="font-bold mr-5">{result.name}</span> {result.symbol}</div>
                 ))}
@@ -130,7 +130,7 @@ export function UserList(props) {
             {chosenList && chosenList.length > 0?
                 <div className="my-8 flex flex-col border border-gray-300 rounded-[5px]">
                     {chosenList.map((result) => (
-                        <div key={result.id} onClick={() => handleClickWatchList(result)} className="flex justify-between p-4  border-b border-gray-400">
+                        <div key={result.id} onClick={() => handleClickWatchList(result)} className="flex justify-between py-3 px-4  border-b border-gray-400">
                             <div>
                                 <span className="mr-2 font-bold">{result.name}</span>
                                 <span className="text-small">{result.symbol}</span>

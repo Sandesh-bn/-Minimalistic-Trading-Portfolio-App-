@@ -13,7 +13,7 @@ export function Watchlist(props) {
         <div className="flex-1">
            <LineChart coinId={cryptoInfo.name} />
         </div>
-        <div className="flex-1 flex items-center  justify-center">
+        <div className="flex-1 pt-2 flex items-center  justify-center">
           <CryptoInfo selectedCoinInfo={cryptoData[cryptoInfo.index]}/>
         </div>
       </div>

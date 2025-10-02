@@ -2,84 +2,114 @@ import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { toNounCase } from "../utils/formatCurrency";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
 } from "chart.js";
 import { Spinner } from '@/components/ui/shadcn-io/spinner';
+
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export function LineChart({ coinId = "bitcoin", days = 7 }) {
-  const [chartData, setChartData] = useState({
-    labels: [],
-    datasets: [],
-  });
+    const [duration, setDuration] = useState(days)
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [chartData, setChartData] = useState({
+        labels: [],
+        datasets: [],
+    });
 
-  useEffect(() => {
-    if (!coinId || !days) return;
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    setLoading(true);
-    setError(null);
+    useEffect(() => {
+        if (!coinId || !days) return;
 
-    const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}`;
+        setLoading(true);
+        setError(null);
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch data");
-        return res.json();
-      })
-      .then((data) => {
-        if (!data.prices) throw new Error("No price data returned");
+        const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${duration}`;
 
-        const labels = data.prices.map((p) => {
-          const date = new Date(p[0]);
-          return days === 1
-            ? date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
-            : date.toLocaleDateString([], { month: "short", day: "numeric" });
-        });
-        const prices = data.prices.map((p) => p[1]);
+        fetch(url)
+            .then((res) => {
+                if (!res.ok) throw new Error("Failed to fetch data");
+                return res.json();
+            })
+            .then((data) => {
+                if (!data.prices) throw new Error("No price data returned");
 
-        setChartData({
-          labels,
-           datasets: [
-            {
-                fill: true,
-                label: `${toNounCase(coinId)} Price (USD)`,
-                data: prices,
-                borderColor: 'rgba(9, 192, 88, 1)',
-                backgroundColor: 'rgba(53, 235, 59, 0.5)',
-            },
-        ],
-        });
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [coinId, days]);
+                const labels = data.prices.map((p) => {
+                    const date = new Date(p[0]);
+                    return days === 1
+                        ? date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+                        : date.toLocaleDateString([], { month: "short", day: "numeric" });
+                });
+                const prices = data.prices.map((p) => p[1]);
 
-  if (loading) return (
-    <div className="flex justify-center items-center h-full">
-        <Spinner key={'bars'} variant={'bars'} />
-    </div>
-  )
-  if (error) return <p>Error: {error}</p>;
+                setChartData({
+                    labels,
+                    datasets: [
+                        {
+                            fill: true,
+                            label: `${toNounCase(coinId)} Price (USD)`,
+                            data: prices,
+                            borderColor: 'rgba(15, 123, 224, 1)',
+                            backgroundColor: 'rgba(53, 156, 235, 0.5)',
+                        },
+                    ],
+                });
+                setLoading(false);
+            })
+            .catch((err) => {
+                setError(err.message);
+                setLoading(false);
+            });
+    }, [coinId, duration]);
 
-  return (
-    <div>
-      <Line options={{ animation: false}} data={chartData} />
-    </div>
-  );
+    if (loading) return (
+        <div className="flex justify-center items-center h-full">
+            <Spinner key={'bars'} variant={'bars'} />
+        </div>
+    )
+    if (error) return <p>Error: {error}</p>;
+
+    return (
+        <div>
+            <div>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="outline">Range: {duration} days</Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+                        <DropdownMenuLabel>Set Duration</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuRadioGroup value={duration} onValueChange={setDuration}>
+                            <DropdownMenuRadioItem value="1">1 Day</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="7">1 Week</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="30">1 Month</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="365">1 Year</DropdownMenuRadioItem>
+                        </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+            <Line options={{ animation: false }} data={chartData} />
+        </div>
+    );
 }
