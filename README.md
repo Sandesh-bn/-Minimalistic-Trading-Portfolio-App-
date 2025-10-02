@@ -1,16 +1,45 @@
-# React + Vite
+# 💹📈 Minimalistic Trading Portfolio App 📉📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built this little project to flex my frontend muscles and play around with crypto data.
 
-Currently, two official plugins are available:
+### ✨ What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Pulls live(ish) crypto info from the Coingecko API
 
-## React Compiler
+Shows key stats + charts for the top 100 coins
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Keeps track of a mini portfolio (BTC, ETH, SOL, DOGE gang 🐶🚀)
 
-## Expanding the ESLint configuration
+Visualizes your portfolio allocation with a slick donut chart
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Lets you build a watchlist of up to 10 coins and track their moves (1d, 7d, 30d, 1y)
+
+All wrapped up with shadcn/ui, React, and Chart.js goodness
+
+### 🛠️ Stack
+
+React ⚛️
+
+shadcn/ui for clean UI 🎨
+
+Chart.js for tasty charts 📊
+
+Coingecko API for crypto data 💰
+
+### 🍾 Future Enhancements
+
+Real-time pricing (Coingecko free tier = stingy limits → need to build my own backend with websocket/sse)
+
+Dark 🌙 & Light ☀️ mode
+
+Fully responsive layouts 📱
+
+Auth (because everyone loves sign-ups, right?)
+
+Customizable user profiles 🖼️
+
+AI-powered chatbot buddy 🤖
+
+Latest crypto news feed 📰
+
+Glassmorphism UI ✨ (fancy but heavy on the css rendering)

@@ -98,7 +98,7 @@ export function UserList(props) {
         <div className="flex flex-col p-5">
             <h1 className="text-3xl font-bold mb-5">WatchList</h1>
             <Input className="relative" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="email" placeholder="Search for ticker/crypto and click to add to watchlist" />
-            {searchTerm.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-zinc-100  border border-gray-300 rounded-[5px]">
+            {searchTerm.length > 0 && searchResults.length > 0 && <div className="absolute min-w-50 h-100 my-25 overflow-y-auto bg-zinc-100  border border-gray-300 rounded-[5px]">
                 {searchResults.map((result, index) => (
                     <div onClick={() => handleAddTicker(result)} className="p-3 bg-zinc-100 border border-gray-300"><span className="font-bold mr-5">{result.name}</span> {result.symbol}</div>
                 ))}
