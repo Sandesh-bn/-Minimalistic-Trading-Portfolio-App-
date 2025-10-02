@@ -60,7 +60,7 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-8 bg-white max-h-screen overflow-y-auto">
+        <main className="flex-1 bg-white h-screen overflow-y-auto box-border">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/prices" element={<CryptoPrices cryptoData={cryptoData} />} />

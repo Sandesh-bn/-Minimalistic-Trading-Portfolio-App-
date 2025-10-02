@@ -72,7 +72,6 @@ export function LineChart({ coinId = "bitcoin", days = 7 }) {
 
   return (
     <div>
-      <h2 className="text-xl mb-4">{coinId} Price Chart</h2>
       <Line options={{ animation: false}} data={chartData} />
     </div>
   );
