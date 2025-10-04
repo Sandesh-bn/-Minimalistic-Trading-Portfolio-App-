@@ -97,7 +97,8 @@ function App() {
   return (
     <Router>
       <div className="flex min-h-screen">
-        <aside className="w-50 bg-gradient-to-b from-slate-900 to-zinc-900  text-gray-500 p-4 flex flex-col">
+        <div className="fixed w-full bg-yellow-200 align-center pl-20">CoinGecko API's strict 10–20 requests/hour limit may cause occasional feature failures.</div>
+        <aside className="w-50 bg-gradient-to-b from-slate-900 to-zinc-900  mt-5  text-gray-500 p-4 flex flex-col">
           <h1 className="text-xl mb-6 text-zinc-400">Trading Portfolio</h1>
           <nav className="flex-1 space-y-3 text-small">
             <NavLink
@@ -144,7 +145,7 @@ function App() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-[#161823] h-screen overflow-y-auto box-border">
+        <main className="flex-1  mt-5 bg-[#161823] h-screen overflow-y-auto box-border">
           <Routes>
             <Route path="/" element={<Home overallAssetsData={overallAssetsData} assets={assets} />} />
             <Route path="/prices" element={<CryptoPrices cryptoData={cryptoData} />} />
